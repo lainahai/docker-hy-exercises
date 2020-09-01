@@ -1,0 +1,38 @@
+$ docker build -t curler .
+Sending build context to Docker daemon  3.072kB
+Step 1/6 : FROM ubuntu:16.04
+ ---> 4b22027ede29
+Step 2/6 : RUN apt-get update &&    apt-get install -y curl
+ ---> Running in 0340d4a79e2a
+(apt output)
+Removing intermediate container 0340d4a79e2a
+ ---> 63b6c676b8ec
+Step 3/6 : WORKDIR /curler
+ ---> Running in 8a44adbe4d37
+Removing intermediate container 8a44adbe4d37
+ ---> 22611e58eb16
+Step 4/6 : COPY curler.sh .
+ ---> 52d2f2221fbe
+Step 5/6 : RUN chmod +x curler.sh
+ ---> Running in 4ec3c39ab264
+Removing intermediate container 4ec3c39ab264
+ ---> 66aec058f829
+Step 6/6 : CMD ["./curler.sh"]
+ ---> Running in d03379a43bfe
+Removing intermediate container d03379a43bfe
+ ---> 87597ae11535
+Successfully built 87597ae11535
+Successfully tagged curler:latest
+
+$ docker run -it curler
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+

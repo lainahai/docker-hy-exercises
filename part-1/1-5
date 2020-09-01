@@ -1,0 +1,19 @@
+jt@devops-ubuntu:~/part-1$ docker run -d -it --name curly ubuntu sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+e56f025c3312a385620541756dac0dcbb0375921a4df825b4fbd312090160be1
+
+Install curl while the container is waiting for input
+jt@devops-ubuntu:~/part-1$ docker exec -d curly sh -c 'apt-get update && apt-get install -y curl'
+
+(wait a while)
+
+jt@devops-ubuntu:~/part-1$ docker attach curly
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+

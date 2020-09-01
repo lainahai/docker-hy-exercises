@@ -1,0 +1,23 @@
+jt@devops-ubuntu:~/part-1$ docker run -d --name logs devopsdockeruh/exec_bash_exercise
+Unable to find image 'devopsdockeruh/exec_bash_exercise:latest' locally
+latest: Pulling from devopsdockeruh/exec_bash_exercise
+(wait...)
+Status: Downloaded newer image for devopsdockeruh/exec_bash_exercise:latest
+934991da23994e406c454ac11d420369b18929bb803fe97918ca542a2fd73626
+jt@devops-ubuntu:~/part-1$ docker exec -it logs bash
+root@934991da2399:/usr/app# tail -f ./logs.txt 
+Mon, 31 Aug 2020 20:37:57 GMT
+Mon, 31 Aug 2020 20:38:00 GMT
+Mon, 31 Aug 2020 20:38:03 GMT
+Mon, 31 Aug 2020 20:38:06 GMT
+Secret message is:
+"Docker is easy"
+Mon, 31 Aug 2020 20:38:12 GMT
+Mon, 31 Aug 2020 20:38:15 GMT
+Mon, 31 Aug 2020 20:38:18 GMT
+Mon, 31 Aug 2020 20:38:21 GMT
+Secret message is:
+"Docker is easy"
+^C
+root@934991da2399:/usr/app# exit
+
