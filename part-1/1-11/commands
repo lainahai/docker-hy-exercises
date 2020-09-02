@@ -1,0 +1,17 @@
+$ docker build -t example-backend .
+...
+Successfully tagged example-backend:latest
+
+$ touch logs.txt
+$ docker run -d -p 8000:8000 \
+                -v $(pwd)/logs.txt:/backend-example-docker/logs.txt \
+                --name backend \
+                example-backend
+
+$ curl http://localhost:8000
+Port configured correctly, generated message in logs.txt
+
+$ docker logs backend
+...
+::ffff:172.17.0.1 - GET / HTTP/1.1 200 56 - 0.944 ms
+

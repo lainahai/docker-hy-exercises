@@ -1,0 +1,10 @@
+$ docker build -t example-frontend ./frontend
+$ docker build -t example-backend ./backend
+
+$ touch logs.txt
+
+$ docker run -d -p 5000:5000 --name frontend example-frontend
+$ docker run -d -p 8000:8000 -v $(pwd)/logs.txt:/backend-example-docker/logs.txt \
+                --name backend example-backend
+
+

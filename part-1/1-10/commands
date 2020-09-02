@@ -1,0 +1,14 @@
+$ docker build -t example-frontend .
+Sending build context to Docker daemon  3.584kB
+Step 1/7 : FROM ubuntu:latest
+...
+
+$ docker run -d -p 5000:5000 --name frontti example-frontend
+
+$ docker logs -f frontti
+...
+INFO: Accepting connections at http://localhost:5000
+
+$ browsh --startup-url http://localhost:5000
+It works!
+
