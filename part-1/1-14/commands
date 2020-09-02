@@ -1,0 +1,19 @@
+$ docker build -t ruby-ex .
+
+$ docker run -d -p 3000:3000 --name railstest ruby-ex
+
+$ docker logs -f railstest 
+=> Booting Puma
+=> Rails 5.2.2.1 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.12.0 (ruby 2.6.0-p0), codename: Llamas in Pajamas
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/" for 172.17.0.1 at 2020-09-02 20:06:11 +0000
+...
+
+
+
